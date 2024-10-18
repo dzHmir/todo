@@ -16,22 +16,14 @@
     <table class="todo-table">
         <thead>
         <tr>
-            <th></th>
+            <th>Select</th>
+            <th>Id</th>
             <th>Task</th>
             <th>Deadline</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td><input type="checkbox" class="task-checkbox"></td>
-            <td>Task 1</td>
-            <td>11.10.2024 12:00 PM</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" class="task-checkbox"></td>
-            <td>Task 2</td>
-            <td>11.10.2024 3:00 PM</td>
-        </tr>
+        <tbody id ="taskList">
+        <!-- Задачи будут загружены сюда -->
         </tbody>
     </table>
 
@@ -40,49 +32,28 @@
     </footer>
 </div>
 
+<!-- Модальное окно для добавления новой задачи -->
 <div id="taskModal" class="modal">
     <div class="modal-content">
         <h2>Add New Task</h2>
-        <form>
+        <form id="taskForm">
             <div class="form-group">
                 <label for="taskName">Enter New Task:</label>
                 <input type="text" id="taskName" placeholder="New Task">
             </div>
             <div class="form-group">
                 <label for="taskDeadline">Enter Deadline:</label>
-                <input type="date" id="taskDeadlineDate">
+                <input type="date" id="taskDeadlineDate" name="taskDeadlineDate" required>
                 <label for="taskDeadlineTime">Time:</label>
-                <input type="time" id="taskDeadlineTime">
+                <input type="time" id="taskDeadlineTime" name="taskDeadlineTime" required>
             </div>
             <button type="submit">Add Task</button>
             <a href="#" class="close-btn">Cancel</a>
         </form>
     </div>
 </div>
-<script>
-    document.getElementById('taskForm').addEventListener('submit', function(e) {
-        e.preventDefault();
 
-        const taskName = document.getElementById('taskName').value;
-        const deadlineDate = document.getElementById('taskDeadlineDate').value;
-        const deadlineTime = document.getElementById('taskDeadlineTime').value;
+<script src="script.js"></script>
 
-        fetch('/tasks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                name: "testName",
-                deadline: "2024-10-01"
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Task added:', data);
-            })
-            .catch(error => console.error('Error:', error));
-    });
-</script>
 </body>
 </html>

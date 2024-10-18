@@ -17,19 +17,18 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    public List<Task> getAllTasks(boolean isComplete) {
+        return taskRepository.findAll().stream().filter(task -> task.getIsCompleted().equals(isComplete)).toList();
     }
 
     public Task saveTask(Task tasksModel) {
         return taskRepository.save(tasksModel);
     }
-    public Task getTaskByName(String name) {
-        return taskRepository.findByName(name);
-    }
 
-    public void deleteTask(Long id) {
-        taskRepository.deleteById(id);
+    public Task findById(Long id) {
+        return taskRepository.findById(id).orElse(null);
     }
 }
+
+
 
