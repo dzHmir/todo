@@ -21,4 +21,5 @@ public class Task {
 
     @Builder.Default
     private Boolean isCompleted = false;
+
 }

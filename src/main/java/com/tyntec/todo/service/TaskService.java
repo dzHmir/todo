@@ -5,12 +5,15 @@ import com.tyntec.todo.model.Task;
 import com.tyntec.todo.model.TaskRecorder;
 import com.tyntec.todo.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class TaskService {
