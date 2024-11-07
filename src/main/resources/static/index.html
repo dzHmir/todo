@@ -10,7 +10,7 @@
 <div class="container">
     <header>
         <h1>To-Do List</h1>
-        <a href="#taskModal" class="add-task-btn btn">+</a>
+        <a href="#taskModal" class="add-task-btn btn" id="OpenButton">+</a>
     </header>
 
     <table class="todo-table">
@@ -31,7 +31,6 @@
     </footer>
 </div>
 
-
 <div id="taskModal" class="modal">
     <div class="modal-content">
         <h2>Add New Task</h2>
@@ -47,7 +46,7 @@
                 <input type="time" id="taskDeadlineTime" name="taskDeadlineTime" required>
             </div>
             <button type="submit">Add Task</button>
-            <a href="#" class="close-btn">Cancel</a>
+            <a href="#" class="close-btn" id = "close" onclick="document.getElementById('taskModal').classList.remove('show')">Cancel</a>
         </form>
     </div>
 </div>

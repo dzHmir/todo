@@ -111,6 +111,10 @@ footer {
     align-items: center;
 }
 
+.modal.show {
+    display: flex;
+}
+
 #taskModal:target {
     display: flex;
 }

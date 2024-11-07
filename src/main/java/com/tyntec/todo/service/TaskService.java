@@ -47,7 +47,8 @@ public class TaskService {
     }
 
     public TaskRecorder toTaskRecorder(Task task) {
-        return TaskRecorder.builder().id(task.getId())
+        return TaskRecorder.builder()
+                .id(task.getId())
                 .deadline(task.getDeadline())
                 .name(task.getName())
                 .build();
